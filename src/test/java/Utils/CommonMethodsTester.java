@@ -4,9 +4,11 @@ import Utils.CommonMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.io.IOException;
+
 public class CommonMethodsTester extends CommonMethods {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         String url = "https://www.facebook.com/";
         String browser = "chrome";
@@ -21,5 +23,6 @@ public class CommonMethodsTester extends CommonMethods {
        // selectFromDropdown("5", month);
         selectFromDropdown(day, "2");
         //selectFromDropdown(year, 34);
+
     }
 }

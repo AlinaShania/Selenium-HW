@@ -1,12 +1,13 @@
 package Utils;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class CommonMethods {
@@ -53,5 +54,17 @@ public class CommonMethods {
     public static void selectFromDropdown(WebElement dropDown, int index) {
         Select sel = new Select(dropDown);
         sel.selectByIndex(index);
+    }
+
+    public static void takeScreenshot (String fileName)  {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+
+        File screenshot = ts.getScreenshotAs(OutputType.FILE);
+
+        try {
+            FileUtils.copyFile(screenshot, new File("C:\\Users\\Denys\\OneDrive\\Desktop\\" + fileName));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
