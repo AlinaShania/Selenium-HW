@@ -62,9 +62,16 @@ public class CommonMethods {
         File screenshot = ts.getScreenshotAs(OutputType.FILE);
 
         try {
-            FileUtils.copyFile(screenshot, new File("C:\\Users\\Denys\\OneDrive\\Desktop\\" + fileName));
+
+            FileUtils.copyFile(screenshot, new File(System.getProperty("user.dir")+"/screenshots/" + fileName+".png"));
         } catch (IOException e){
             e.printStackTrace();
         }
+        /* try {
+            FileUtils.copyFile(screenshot, new File("C:\Users\Denys\OneDrive\Desktop\" + fileName));
+        } catch (IOException e){
+            e.printStackTrace();
+        }*/
     }
+
 }
